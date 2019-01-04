@@ -1,0 +1,68 @@
+---
+spring:
+  application:
+    name: spring-cloud-eureka
+  cloud:
+    config:
+      server:
+       git:
+         uri: https://github.com/zhangfmm/myproject
+         username: 741315941@qq.com
+         password: ZFMxlp565238
+  profiles: peer1
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://peer2:8762/eureka/,http://peer3:8763/eureka/
+
+---
+spring:
+  application:
+    name: spring-cloud-eureka
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/zhangfmm/myproject
+          username: 741315941@qq.com
+          password: ZFMxlp565238
+  profiles: peer2
+server:
+  port: 8762
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/,http://peer3:8763/eureka/
+
+---
+spring:
+  application:
+    name: spring-cloud-eureka
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/zhangfmm/myproject
+          username: 741315941@qq.com
+          password: ZFMxlp565238
+  profiles: peer3
+server:
+  port: 8763
+eureka:
+  instance:
+    hostname: peer3
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
