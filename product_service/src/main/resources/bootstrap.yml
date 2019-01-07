@@ -20,6 +20,15 @@ spring:
 
   application:
     name: product-service
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+        enabled: true
+#        后缀 product-server-test.yml
+      profile: test
+#        分支默认master
+      label:
 
 mybatis:
   type-aliases-package: com.ym.service_two.entity
@@ -60,10 +69,10 @@ eureka:
 #  supportMethodsArguments: true
 #  params: count=countSql
 
-server:
-  port: 8088
-pagehelper:
-  helper-dialect: mysql
-  reasonable: true
-  support-methods-arguments: true
-  params: count=countSql
+#server:
+#  port: 8088
+#pagehelper:
+#  helper-dialect: mysql
+#  reasonable: true
+#  support-methods-arguments: true
+#  params: count=countSql

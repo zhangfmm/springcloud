@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/javaerer/config-cloud.git
+          username: 741315941@qq.com
+          password: ZFMXLP565238
+server:
+  port: 9100
+#注册到eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/,http://peer3:8763/eureka/

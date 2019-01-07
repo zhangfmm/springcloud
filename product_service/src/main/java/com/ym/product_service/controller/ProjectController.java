@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,11 +20,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/product")
-@Api(value = "product",description = "产品接口")
+@Api(value = "product", description = "产品接口")
 public class ProjectController {
 
     @Autowired
     private ProductService productService;
+    @Value("${server.port}")
+    private String port;
+
     @PostMapping
     @ApiOperation(value = "保存商品")
     @ApiImplicitParams({
@@ -37,7 +41,7 @@ public class ProjectController {
             @ApiResponse(code = 404, message = "服务器找不到给定的资源；文档不存在"),
             @ApiResponse(code = 500, message = "服务器不能完成请求")}
     )
-    public int addUser(Product product){
+    public int addUser(Product product) {
         return productService.addProduct(product);
     }
 
@@ -56,7 +60,8 @@ public class ProjectController {
             @ApiResponse(code = 404, message = "服务器找不到给定的资源；文档不存在"),
             @ApiResponse(code = 500, message = "服务器不能完成请求")}
     )
-    public List<Product> findAllUser(int pageNo, int pageSize){
-        return productService.findAllProduct(pageNo,pageSize);
+    public List<Product> findAllUser(int pageNo, int pageSize) {
+        System.out.println("port" + port);
+        return productService.findAllProduct(pageNo, pageSize);
     }
 }

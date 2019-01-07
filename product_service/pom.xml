@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ym</groupId>
-    <artifactId>service_two</artifactId>
+    <artifactId>prduct_service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>service_two</name>
     <description>service_two</description>
@@ -75,6 +75,11 @@
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.2.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-client</artifactId>
         </dependency>
     </dependencies>
 
