@@ -19,7 +19,7 @@ spring:
       max-pool-prepared-statement-per-connection-size: 20
 
   application:
-    name: product-service
+    name: product-server
   cloud:
     config:
       discovery:
@@ -29,6 +29,11 @@ spring:
       profile: test
 #        分支默认master
       label:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
 
 mybatis:
   type-aliases-package: com.ym.service_two.entity
@@ -76,3 +81,8 @@ eureka:
 #  reasonable: true
 #  support-methods-arguments: true
 #  params: count=countSql
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

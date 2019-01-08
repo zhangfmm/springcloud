@@ -11,7 +11,7 @@ eureka:
 #服务的名称
 spring:
   application:
-    name: order-service
+    name: order-server
 #自定义负载均衡策略
 product-service:
   ribbon:
